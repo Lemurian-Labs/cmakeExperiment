@@ -3,7 +3,7 @@
 
 int main()
 {
-    std::printf("%s\n", scandinavia_greet_sweden(0));
-    std::printf("%s\n", scandinavia_greet_denmark(0));
+    std::printf("%s\n", scandinavia_greet_sweden(0).c_str());
+    std::printf("%s\n", scandinavia_greet_denmark(0).c_str());
     return 0;
 }

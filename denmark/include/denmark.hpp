@@ -1,5 +1,5 @@
-#ifndef DENMARK_HPP
-#define DENMARK_HPP
+#pragma once
+#include <string>
 
 enum class DenmarkCity {
     COPENHAGEN = 0,
@@ -7,6 +7,5 @@ enum class DenmarkCity {
     ODENSE
 };
 
-const char *denmark_capital_greeting(DenmarkCity city);
+std::string denmark_city_greeting(DenmarkCity city);
 
-#endif /* DENMARK_HPP */

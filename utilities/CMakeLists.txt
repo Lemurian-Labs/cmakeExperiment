@@ -1,5 +1,4 @@
-add_executable(hello_scandinavia src/hello_scandinavia.cpp)
-target_link_libraries(hello_scandinavia PRIVATE scandinavia)
-
-add_executable(test_utilities test/test_utilities.cpp)
-target_link_libraries(test_utilities PRIVATE scandinavia)
+# No library to declare here - utilities are leaf executables.
+# Dispatches to src/ and test/ to keep the same structure as the subsystems
+add_subdirectory(src)
+add_subdirectory(test)

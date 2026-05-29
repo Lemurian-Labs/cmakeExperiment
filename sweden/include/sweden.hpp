@@ -1,5 +1,5 @@
-#ifndef SWEDEN_HPP
-#define SWEDEN_HPP
+#pragma once
+#include <string>
 
 enum class SwedenCity {
     STOCKHOLM = 0,
@@ -7,6 +7,5 @@ enum class SwedenCity {
     MALMO
 };
 
-const char *sweden_capital_greeting(SwedenCity city);
+std::string sweden_city_greeting(SwedenCity city);
 
-#endif /* SWEDEN_HPP */

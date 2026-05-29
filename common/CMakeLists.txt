@@ -1,10 +1,10 @@
 # Target declared here without sources - implementation is added by
 # src/CMakeLists.txt via target_sources, keeping identity separate from detail
-add_library(denmark STATIC)
+add_library(common STATIC)
 
-# PUBLIC: scandinavia needs denmark.hpp at compile time when it links denmark,
-# so the include path must propagate to consumers
-target_include_directories(denmark PUBLIC include)
+# PUBLIC: sweden and denmark need language.hpp at compile time, so the include
+# path must propagate when they link common via target_link_libraries PRIVATE
+target_include_directories(common PUBLIC include)
 
 add_subdirectory(src)
 

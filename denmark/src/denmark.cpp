@@ -1,16 +1,12 @@
 #include "denmark.hpp"
+#include "city_names.hpp"
+#include "language.hpp"
+#include <string>
 
-static const char *city_name(DenmarkCity city)
+std::string denmark_city_greeting(DenmarkCity city)
 {
-    switch (city) {
-        case DenmarkCity::COPENHAGEN: return "Hej fra Copenhagen";
-        case DenmarkCity::AARHUS:     return "Hej fra Aarhus";
-        case DenmarkCity::ODENSE:     return "Hej fra Odense";
-        default:                      return "Hej fra Danmark";
-    }
-}
-
-const char *denmark_capital_greeting(DenmarkCity city)
-{
-    return city_name(city);
+    Language &lang = Language::instance();
+    return std::string(lang.translate(Phrase::HEY,  Lang::DANISH))
+         + " " + lang.translate(Phrase::FROM, Lang::DANISH)
+         + " " + city_name(city);
 }
