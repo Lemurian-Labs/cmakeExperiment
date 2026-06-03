@@ -8,8 +8,8 @@ target_sources(denmark PRIVATE denmark.cpp city_names.cpp)
 # CMakeLists.txt is already inside src/ - a bare "src" would resolve wrongly
 target_include_directories(denmark PRIVATE ${CMAKE_CURRENT_SOURCE_DIR})
 
-# PRIVATE: gives the compiler -Icommon/include via common's PUBLIC include path
-# so language.hpp is found at compile time. Marked PRIVATE because callers of
-# denmark have no reason to know about common. The unresolved Language::instance
-# symbol in denmark.o is carried forward and resolved when scandinavia.so links
-target_link_libraries(denmark PRIVATE common)
+# Only the include path is needed here - language.hpp must be visible at compile
+# time but libcommon.a is not linked until scandinavia.so is assembled.
+# Using the raw path avoids a build-order dependency on the common target,
+# allowing denmark and common to compile in parallel
+target_include_directories(denmark PRIVATE ${CMAKE_SOURCE_DIR}/common/include)

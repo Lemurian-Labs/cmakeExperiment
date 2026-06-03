@@ -1,14 +1,14 @@
 # Target declared here without sources - implementation is added by
-# src/CMakeLists.txt via target_sources, keeping identity separate from detail
+# src/CMakeLists.txt via target_sources, keeping identity separate from details
 add_library(sweden STATIC)
 
-# PUBLIC: scandinavia needs sweden.hpp at compile time when it links sweden,
-# so the include path must propagate to consumers
+# PUBLIC: when a consumer links sweden via target_link_libraries, CMake
+# automatically adds include/ to their compile step - no explicit include
+# path needed on the consumer side
 target_include_directories(sweden PUBLIC include)
 
 add_subdirectory(src)
 
-# Separate subdirectory so tests can be conditionally skipped:
-#   option(BUILD_TESTS "Build unit tests" ON)
-#   if(BUILD_TESTS) add_subdirectory(test) endif()
-add_subdirectory(test)
+if(BUILD_TESTING)
+    add_subdirectory(test)
+endif()
