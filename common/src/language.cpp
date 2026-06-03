@@ -8,10 +8,6 @@ Language &Language::instance()
 
 const char *Language::translate(Phrase phrase, Lang lang) const
 {
-    //                  SWEDISH   DANISH
-    static const char *table[2][2] = {
-        /* HEY  */  { "Hej",   "Hej"  },
-        /* FROM */  { "fran",  "fra"  },
-    };
+#include "language_table.gen.inc"
     return table[static_cast<int>(phrase)][static_cast<int>(lang)];
 }

@@ -1,0 +1,3 @@
+# label   SWEDISH  DANISH
+HEY       Hej      Hej
+FROM      fran     fra
