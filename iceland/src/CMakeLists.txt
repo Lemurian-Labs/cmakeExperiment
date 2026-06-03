@@ -1,0 +1,2 @@
+pybind11_add_module(iceland_bindings iceland_bindings.cpp)
+target_link_libraries(iceland_bindings PRIVATE scandinavia)

@@ -25,3 +25,4 @@ add_subdirectory(sweden)        # depends on common
 add_subdirectory(denmark)       # depends on common
 add_subdirectory(scandinavia)   # depends on sweden and denmark
 add_subdirectory(utilities)     # depends on scandinavia
+add_subdirectory(iceland)       # pybind11 Python module wrapping scandinavia
