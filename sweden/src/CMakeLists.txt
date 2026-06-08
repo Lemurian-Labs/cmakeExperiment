@@ -13,3 +13,7 @@ target_include_directories(sweden PRIVATE ${CMAKE_CURRENT_SOURCE_DIR})
 # Using the raw path avoids a build-order dependency on the common target,
 # allowing sweden and common to compile in parallel
 target_include_directories(sweden PRIVATE ${CMAKE_SOURCE_DIR}/common/include)
+
+# Provides lang.hpp (Lang enum) for the selected localization group,
+# mirroring the raw-path pattern used above to preserve parallel build ordering
+target_include_directories(sweden PRIVATE ${CMAKE_SOURCE_DIR}/common/src/localization/${LANGUAGE_GROUP})

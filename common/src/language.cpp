@@ -1,4 +1,5 @@
 #include "language.hpp"
+#include "localization/lang_lookup.hpp"
 
 Language &Language::instance()
 {
@@ -8,5 +9,5 @@ Language &Language::instance()
 
 const char *Language::translate(Phrase phrase, Lang lang) const
 {
-    return table[static_cast<int>(phrase)][static_cast<int>(lang)];
+    return lang_lookup(static_cast<int>(phrase), static_cast<int>(lang));
 }

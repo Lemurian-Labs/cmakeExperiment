@@ -6,6 +6,10 @@ add_library(common STATIC)
 # find the interface headers without specifying the path themselves
 target_include_directories(common PUBLIC include)
 
+# PUBLIC: propagates the selected group's lang.hpp to all consumers of common,
+# so they resolve #include "lang.hpp" to the correct Lang enum at compile time
+target_include_directories(common PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/src/localization/${LANGUAGE_GROUP})
+
 add_subdirectory(src)
 
 if(BUILD_TESTING)

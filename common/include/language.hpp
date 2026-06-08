@@ -1,5 +1,5 @@
 #pragma once
-#include "language_native.hpp"
+#include "lang.hpp"
 
 enum class Phrase {
     HEY = 0,

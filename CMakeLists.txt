@@ -12,6 +12,8 @@ set(CMAKE_EXPORT_COMPILE_COMMANDS ON) #Generate compile_commands.json for use wi
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)  # executables
 set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/lib)  # shared libraries (.so)
 
+set(LANGUAGE_GROUP "native" CACHE STRING "Localization group to build (native or latin)")
+
 include(CTest)
 # include(CTest) calls enable_testing() and creates the BUILD_TESTING option
 # (defaults ON). Subsystems check this to gate test compilation:
