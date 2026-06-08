@@ -1,13 +1,9 @@
 #pragma once
+#include "language_native.hpp"
 
 enum class Phrase {
     HEY = 0,
     FROM
-};
-
-enum class Lang {
-    SWEDISH = 0,
-    DANISH
 };
 
 class Language {
