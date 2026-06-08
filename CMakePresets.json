@@ -1,0 +1,96 @@
+{
+  "version": 3,
+  "cmakeMinimumRequired": { "major": 3, "minor": 28, "patch": 0 },
+  "configurePresets": [
+    {
+      "name": "base",
+      "hidden": true,
+      "generator": "Ninja",
+      "cacheVariables": {
+        "CMAKE_CXX_COMPILER": "/usr/bin/clang++-18"
+      }
+    },
+
+    {
+      "name": "base-native",
+      "hidden": true,
+      "inherits": "base",
+      "cacheVariables": { "LANGUAGE_GROUP": "native" }
+    },
+    {
+      "name": "base-latin",
+      "hidden": true,
+      "inherits": "base",
+      "cacheVariables": { "LANGUAGE_GROUP": "latin" }
+    },
+
+    {
+      "name": "base-product",
+      "hidden": true,
+      "cacheVariables": { "CMAKE_BUILD_TYPE": "Release" }
+    },
+    {
+      "name": "base-dev",
+      "hidden": true,
+      "cacheVariables": { "CMAKE_BUILD_TYPE": "RelWithDebInfo" }
+    },
+    {
+      "name": "base-debug",
+      "hidden": true,
+      "cacheVariables": { "CMAKE_BUILD_TYPE": "Debug" }
+    },
+
+    {
+      "name": "native-product",
+      "displayName": "Native — Product",
+      "inherits": ["base-native", "base-product"],
+      "binaryDir": "${sourceDir}/build/native-product"
+    },
+    {
+      "name": "native-dev",
+      "displayName": "Native — Dev",
+      "inherits": ["base-native", "base-dev"],
+      "binaryDir": "${sourceDir}/build/native-dev"
+    },
+    {
+      "name": "native-debug",
+      "displayName": "Native — Debug",
+      "inherits": ["base-native", "base-debug"],
+      "binaryDir": "${sourceDir}/build/native-debug"
+    },
+    {
+      "name": "latin-product",
+      "displayName": "Latin — Product",
+      "inherits": ["base-latin", "base-product"],
+      "binaryDir": "${sourceDir}/build/latin-product"
+    },
+    {
+      "name": "latin-dev",
+      "displayName": "Latin — Dev",
+      "inherits": ["base-latin", "base-dev"],
+      "binaryDir": "${sourceDir}/build/latin-dev"
+    },
+    {
+      "name": "latin-debug",
+      "displayName": "Latin — Debug",
+      "inherits": ["base-latin", "base-debug"],
+      "binaryDir": "${sourceDir}/build/latin-debug"
+    }
+  ],
+  "buildPresets": [
+    { "name": "native-product", "configurePreset": "native-product" },
+    { "name": "native-dev",     "configurePreset": "native-dev"     },
+    { "name": "native-debug",   "configurePreset": "native-debug"   },
+    { "name": "latin-product",  "configurePreset": "latin-product"  },
+    { "name": "latin-dev",      "configurePreset": "latin-dev"      },
+    { "name": "latin-debug",    "configurePreset": "latin-debug"    }
+  ],
+  "testPresets": [
+    { "name": "native-product", "configurePreset": "native-product" },
+    { "name": "native-dev",     "configurePreset": "native-dev"     },
+    { "name": "native-debug",   "configurePreset": "native-debug"   },
+    { "name": "latin-product",  "configurePreset": "latin-product"  },
+    { "name": "latin-dev",      "configurePreset": "latin-dev"      },
+    { "name": "latin-debug",    "configurePreset": "latin-debug"    }
+  ]
+}

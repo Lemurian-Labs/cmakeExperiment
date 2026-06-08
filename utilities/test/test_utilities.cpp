@@ -1,13 +1,10 @@
+#include "test_utilities.hpp"
 #include "scandinavia.hpp"
-#include <cassert>
-#include <cstdio>
 
-int main()
-{
-    std::string sw = scandinavia_greet_sweden(0);
-    std::string dk = scandinavia_greet_denmark(0);
-    assert(!sw.empty());
-    assert(!dk.empty());
-    std::printf("utilities tests passed\n");
-    return 0;
+TEST_P(SwedenGreetingTest, Greeting) {
+    EXPECT_EQ(scandinavia_greet_sweden(GetParam().city_code), GetParam().expected);
+}
+
+TEST_P(DenmarkGreetingTest, Greeting) {
+    EXPECT_EQ(scandinavia_greet_denmark(GetParam().city_code), GetParam().expected);
 }
