@@ -1,2 +1,1 @@
 target_sources(common PRIVATE language.cpp)
-add_subdirectory(localization)

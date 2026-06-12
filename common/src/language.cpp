@@ -1,5 +1,5 @@
 #include "language.hpp"
-#include "localization/lang_lookup.hpp"
+#include "lang_lookup.hpp"
 
 Language &Language::instance()
 {

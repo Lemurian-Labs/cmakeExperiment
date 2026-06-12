@@ -8,8 +8,7 @@ target_sources(sweden PRIVATE sweden.cpp city_names.cpp)
 # CMakeLists.txt is already inside src/ - a bare "src" would resolve wrongly
 target_include_directories(sweden PRIVATE ${CMAKE_CURRENT_SOURCE_DIR})
 
-# Only the include path is needed here - language.hpp must be visible at compile
-# time but libcommon.a is not linked until scandinavia.so is assembled.
-# Using the raw path avoids a build-order dependency on the common target,
-# allowing sweden and common to compile in parallel
-target_include_directories(sweden PRIVATE ${CMAKE_SOURCE_DIR}/common/include)
+# PRIVATE: brings in common's and localization's PUBLIC include dirs at compile
+# time (language.hpp, lang.hpp). common.a itself is not linked here — that
+# happens at the scandinavia.so level where all static libs are assembled.
+target_link_libraries(sweden PRIVATE common)
