@@ -1,4 +1,4 @@
-#include "../lang_lookup.hpp"
+#include "lang_lookup.hpp"
 #include "lang.hpp"
 #include <cassert>
 

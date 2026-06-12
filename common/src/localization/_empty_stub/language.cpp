@@ -1,4 +1,4 @@
-#include "../lang_lookup.hpp"
+#include "lang_lookup.hpp"
 #include <cassert>
 
 // Empty stub used when no real localization exists for LANGUAGE_GROUP.

@@ -23,6 +23,12 @@
       "inherits": "base",
       "cacheVariables": { "LANGUAGE_GROUP": "latin" }
     },
+    {
+      "name": "base-stub",
+      "hidden": true,
+      "inherits": "base",
+      "cacheVariables": { "LANGUAGE_GROUP": "_empty_stub" }
+    },
 
     {
       "name": "base-product",
@@ -75,6 +81,13 @@
       "displayName": "Latin — Debug",
       "inherits": ["base-latin", "base-debug"],
       "binaryDir": "${sourceDir}/build/latin-debug"
+    },
+    {
+      "name": "stub-dev",
+      "displayName": "Stub — Dev",
+      "description": "Builds with _empty_stub localization to verify the fallback asserts at runtime. RelWithDebInfo keeps assert enabled.",
+      "inherits": ["base-stub", "base-dev"],
+      "binaryDir": "${sourceDir}/build/stub-dev"
     }
   ],
   "buildPresets": [
@@ -83,7 +96,8 @@
     { "name": "native-debug",   "configurePreset": "native-debug"   },
     { "name": "latin-product",  "configurePreset": "latin-product"  },
     { "name": "latin-dev",      "configurePreset": "latin-dev"      },
-    { "name": "latin-debug",    "configurePreset": "latin-debug"    }
+    { "name": "latin-debug",    "configurePreset": "latin-debug"    },
+    { "name": "stub-dev",       "configurePreset": "stub-dev"       }
   ],
   "testPresets": [
     { "name": "native-product", "configurePreset": "native-product" },
@@ -91,6 +105,7 @@
     { "name": "native-debug",   "configurePreset": "native-debug"   },
     { "name": "latin-product",  "configurePreset": "latin-product"  },
     { "name": "latin-dev",      "configurePreset": "latin-dev"      },
-    { "name": "latin-debug",    "configurePreset": "latin-debug"    }
+    { "name": "latin-debug",    "configurePreset": "latin-debug"    },
+    { "name": "stub-dev",       "configurePreset": "stub-dev"       }
   ]
 }

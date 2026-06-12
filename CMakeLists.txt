@@ -31,7 +31,7 @@ include(CTest)
 # include(CTest) calls enable_testing() and creates the BUILD_TESTING option
 # (defaults ON). Subsystems check this to gate test compilation:
 #   cmake -DBUILD_TESTING=OFF ...  skips all test targets
-
+# This will be replaced as soon as our conatiners have it preinstalled, but for now it allows tests to be built and run with a single command:
 if(BUILD_TESTING)
     include(FetchContent)
     FetchContent_Declare(

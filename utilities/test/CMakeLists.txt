@@ -2,8 +2,8 @@
 # This is a way to support tests where only the final results syntax varies. If the difference is larger
 # it is probably better to create separate tests for each language/architecture.
 # Shared fixture in test_utilities.cpp; expected values in ${LANGUAGE_GROUP}/greetings_data.cpp.
-# Gate on file existence so a latin build silently skips until data is provided.
-if(EXISTS ${CMAKE_CURRENT_SOURCE_DIR}/${LANGUAGE_GROUP}/greetings_data.cpp)
+# Gate on directory existence so a build silently skips until the localization directory is provided.
+if(IS_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/${LANGUAGE_GROUP})
     add_executable(test_utilities
         test_utilities.cpp
         ${LANGUAGE_GROUP}/greetings_data.cpp
