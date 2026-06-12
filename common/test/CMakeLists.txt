@@ -1,1 +1,5 @@
-add_subdirectory(${LANGUAGE_GROUP})
+# Unit test for common in isolation - links the static lib directly, not
+# through scandinavia.so, so it tests the subsystem without the wrapping layer
+add_executable(test_language ${LANGUAGE_GROUP}/test_language.cpp)
+target_link_libraries(test_language PRIVATE common)
+add_test(NAME language COMMAND test_language)

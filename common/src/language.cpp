@@ -7,7 +7,7 @@ Language &Language::instance()
     return inst;
 }
 
-const char *Language::translate(Phrase phrase, Lang lang) const
+const char *Language::translate(Phrase phrase, int lang) const
 {
-    return lang_lookup(static_cast<int>(phrase), static_cast<int>(lang));
+    return lang_lookup(static_cast<int>(phrase), lang);
 }

@@ -1,5 +1,4 @@
 #pragma once
-#include "lang.hpp"
 
 enum class Phrase {
     HEY = 0,
@@ -9,7 +8,7 @@ enum class Phrase {
 class Language {
 public:
     static Language &instance();
-    const char *translate(Phrase phrase, Lang lang) const;
+    const char *translate(Phrase phrase, int lang) const;
 
 private:
     Language() = default;
