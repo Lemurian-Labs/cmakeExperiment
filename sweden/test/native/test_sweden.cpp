@@ -1,11 +1,6 @@
 #include "sweden.hpp"
-#include <cassert>
-#include <cstdio>
+#include <gtest/gtest.h>
 
-int main()
-{
-    std::string msg = sweden_city_greeting(SwedenCity::STOCKHOLM);
-    assert(msg == "Hej fran Stockholm");
-    std::printf("sweden tests passed\n");
-    return 0;
+TEST(Sweden, Stockholm) {
+    EXPECT_EQ(sweden_city_greeting(SwedenCity::STOCKHOLM), "Hej fran Stockholm");
 }
